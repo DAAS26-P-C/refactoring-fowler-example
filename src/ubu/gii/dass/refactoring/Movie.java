@@ -29,7 +29,7 @@ public class Movie {
 	}
 
 	 public void setPriceCode(int arg) {
-	        switch (arg) {  // ← Este switch se mantiene SOLO para crear la estrategia correcta
+	        switch (arg) {
 	            case REGULAR:
 	                _priceCode = new RegularPrice();
 	                break;
@@ -52,7 +52,7 @@ public class Movie {
 	    return _priceCode.getCharge(daysRented);
 	}
 
-	public int getFrecuentRenterPoints(int daysRented) {
+	public int getFrequentRenterPoints(int daysRented) {
 		return _priceCode.getFrequentRenterPoints(daysRented);
 	}
 	
