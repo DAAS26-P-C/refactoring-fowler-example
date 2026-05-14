@@ -55,5 +55,32 @@ public class VideoClubTest {
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
 
 	}
+	
+	@Test
+	public void testHtmlStatement() {
+
+	    Customer customer = new Customer("Manuel");
+
+	    customer.addRental(
+	            new Rental(
+	                    new Movie("Sky Captain", Movie.NEW_RELEASE),
+	                    5));
+
+	    customer.addRental(
+	            new Rental(
+	                    new Movie("Accion Mutante", Movie.REGULAR),
+	                    1));
+
+	    String result = customer.htmlStatement();
+
+	    String expected =
+	            "<H1>Rental Record for Manuel</H1>"
+	            + "<H2>Sky Captain 15.0</H2>"
+	            + "<H2>Accion Mutante 2.0</H2>"
+	            + "<P>Amount owed is 17.0</P>"
+	            + "<P>You earned 3 frequent renter points</P>";
+
+	    assertEquals(expected, result);
+	}
 
 }
