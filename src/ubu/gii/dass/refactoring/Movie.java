@@ -17,20 +17,32 @@ public class Movie {
 	public static final int NEW_RELEASE = 1;
 
 	private String _title;
-	private int _priceCode;
+	private MoviePrice _priceCode;
 
 	public Movie(String title, int priceCode) {
 		_title = title;
-		_priceCode = priceCode;
+		setPriceCode(priceCode);
 	}
 
 	public int getPriceCode() {
-		return _priceCode;
+		return _priceCode.getPrice();
 	}
 
-	public void setPriceCode(int arg) {
-		_priceCode = arg;
-	}
+	 public void setPriceCode(int arg) {
+	        switch (arg) {  // ← Este switch se mantiene SOLO para crear la estrategia correcta
+	            case REGULAR:
+	                _priceCode = new RegularPrice();
+	                break;
+	            case NEW_RELEASE:
+	                _priceCode = new NewReleasePrice();
+	                break;
+	            case CHILDRENS:
+	                _priceCode = new ChildrenPrice();
+	                break;
+	            default:
+	                throw new IllegalArgumentException("Invalid price code");
+	        }
+	    }
 
 	public String getTitle() {
 		return _title;
