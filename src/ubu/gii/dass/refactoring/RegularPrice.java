@@ -3,7 +3,7 @@ package ubu.gii.dass.refactoring;
 public class RegularPrice extends MoviePrice{
 
 	@Override
-	public int getPrice() {
+	public int getPriceCode() {
 		return Movie.REGULAR;
 	}
 
