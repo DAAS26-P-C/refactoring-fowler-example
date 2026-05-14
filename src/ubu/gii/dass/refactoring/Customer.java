@@ -39,7 +39,7 @@ public class Customer {
 			double thisAmount = 0;
 			Rental each = rentals.next();
 			// determine amounts for each line
-			thisAmount = each.getCharge();
+			thisAmount = each._movie.getCharge(each);
 			
 			// add frequent renter points
 			frequentRenterPoints += each.getFrecuentRenterPoints();
@@ -69,7 +69,7 @@ public class Customer {
 
 	        Rental each = rentals.next();
 
-	        double thisAmount = each.getCharge();
+	        double thisAmount = each._movie.getCharge(each);
 
 	        frequentRenterPoints +=
 	                each.getFrecuentRenterPoints();
